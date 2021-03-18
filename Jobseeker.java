@@ -17,9 +17,13 @@ public class Jobseeker
     /**
      * Constructor for objects of class Jobseeker
      */
-    public Jobseeker()
+    public Jobseeker(int id, String name, String email, String password, String joinDate)
     {
-        
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.joinDate = joinDate;
     }
 
     /**
@@ -30,33 +34,45 @@ public class Jobseeker
      */
     public int getId()
     {
-        return 0;
+        return id;
     }
     
     public String getName()
     {
-        return "oop";
+        return name;
     }
     
     public String getEmail()
     {
-        return "oop";
+        return email;
     }
     
     public String getPassword()
     {
-        return "oop";
+        return password;
     }
     
     public String getJoinDate()
     {
-        return "oop";
+        return joinDate;
     }
     
-    public void setId(int id) {}
-    public void setName(String name) {}
-    public void setEmail(String email) {}
-    public void setPassword(String password) {}
-    public void setJoinDate(String joinDate) {}
-    
+    public void setId(int id) {
+        this.id = id;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    public void setJoinDate(String joinDate) {
+        this.joinDate = joinDate;
+    }
+    public void printData(){
+        System.out.println(getName());
+    }
 }
