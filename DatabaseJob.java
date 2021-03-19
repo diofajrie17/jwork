@@ -1,17 +1,18 @@
 
 /**
- * Write a description of class DatabaseJob here.
+ * 
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Dio Fajrie Fadlullah)
+ * @version (18.03.2021)
  */
 public class DatabaseJob
 {
-    // instance variables - replace the example below with your own
+    
     private String[] listJob;
 
     /**
      * Constructor for objects of class DatabaseJob
+     * 
      */
     public DatabaseJob()
     {
@@ -19,23 +20,32 @@ public class DatabaseJob
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * fungsi yang berguna untuk menambahkan pekerjaan baru kedalam array listJob
+     * @return true
      */
     public boolean addJob(Job job){
         return true;
     }
     
+    /**
+     * fungsi yang berguna untuk menghapus pekerjaan dari array listJob
+     * @return false
+     */
     public boolean removeJob(Job job){
         return false;
     }
-    
+    /**
+     * Getter variable job
+     * @return job
+     */
     public Job getJob(Job job){
         return job;
     }
     
+    /**
+     * Getter array listJob
+     * @return listJob[] mengembalikan array listjob
+     */
     public String[] getListJob(){
         return listJob;
     }

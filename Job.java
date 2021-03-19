@@ -1,9 +1,9 @@
 
 /**
- * Write a description of class Job here.
+ * 
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Dio Fajrie Fadlullah)
+ * @version (18.03.2021)
  */
 public class Job
 {
@@ -16,6 +16,11 @@ public class Job
 
     /**
      * Constructor for objects of class Job
+     * @param id merupakan id dari pekerjaan/Job terkait
+     * @param name merupakan nama dari pekerjaan/Job terkait
+     * @param recruiter merupakan pointer ke objek recruiter dari pekerjaan/Job terkait
+     * @param fee merupakan fee dari pekerjaan/Job terkait
+     * @param category merupakan category dari pekerjaan/Job terkait
      */
     public Job(int id, String name, Recruiter recruiter, int fee, String category)
     {
@@ -27,51 +32,85 @@ public class Job
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * Getter variable id
+     * @return id dari job terkait
      */
     public int setId()
     {
         return id;
     }
     
+    /**
+     * Getter variable name
+     * @return name dari job terkait
+     */
     public String getName()
     {
         return name;
     }
     
+    /**
+     * Getter variable fee
+     * @return fee dari job terkait
+     */
     public int getFee()
     {
         return fee;
     }
     
+    /**
+     * Getter variable category
+     * @return category dari job terkait
+     */
     public String getCategory()
     {
         return category;
     }
     
+    /**
+     * Getter variable recruiter
+     * @return recruiter dari job terkait
+     */
     public Recruiter getRecruiter(){
         return recruiter;
     }
     
+    /**
+     * Setter id
+     * mengassign nilai id baru pada objek Job
+     */
     public void setId(int id) {
         this.id = id;
     }
     
+    /**
+     * Setter name
+     * mengassign nilai name baru pada objek Job
+     */
     public void setName(String name) {
         this.name = name;
     }
     
+    /**
+     * Setter fee
+     * mengassign nilai fee baru pada objek Job
+     */
     public void setFee(int fee) {
         this.fee = fee;
     }
     
+    /**
+     * Setter category
+     * mengassign nilai category baru pada objek Job
+     */
     public void setCategory(String category) {
         this.category = category;
     }
     
+    /**
+     * Setter recruiter
+     * mengassign pointer recruiter baru pada objek Job
+     */
     public void setRecruiter(Recruiter recruiter){
         this.recruiter = recruiter;
     }
