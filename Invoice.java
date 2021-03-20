@@ -112,4 +112,8 @@ public class Invoice
     public void setJobSeeker(Jobseeker jobseeker){
         this.jobseeker = jobseeker;
     }
+    
+    public void printData(){
+        System.out.println(getTotalFee());
+    }
 }

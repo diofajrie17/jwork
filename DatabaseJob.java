@@ -38,8 +38,8 @@ public class DatabaseJob
      * Getter variable job
      * @return job
      */
-    public Job getJob(Job job){
-        return job;
+    public String getJob(int index){
+        return listJob[index];
     }
     
     /**

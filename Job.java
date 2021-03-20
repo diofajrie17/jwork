@@ -114,4 +114,8 @@ public class Job
     public void setRecruiter(Recruiter recruiter){
         this.recruiter = recruiter;
     }
+    
+    public void printData(){
+        System.out.println(getName());
+    }
 }
