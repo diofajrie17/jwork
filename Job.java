@@ -11,8 +11,8 @@ public class Job
     private int id;
     private String name;
     private int fee;
-    private String category;
     private Recruiter recruiter;
+    private JobCategory category;
 
     /**
      * Constructor for objects of class Job
@@ -22,7 +22,7 @@ public class Job
      * @param fee merupakan fee dari pekerjaan/Job terkait
      * @param category merupakan category dari pekerjaan/Job terkait
      */
-    public Job(int id, String name, Recruiter recruiter, int fee, String category)
+    public Job(int id, String name, Recruiter recruiter, int fee, JobCategory category)
     {
         this.id = id;
         this.name = name;
@@ -62,7 +62,7 @@ public class Job
      * Getter variable category
      * @return category dari job terkait
      */
-    public String getCategory()
+    public JobCategory getCategory()
     {
         return category;
     }
@@ -103,7 +103,7 @@ public class Job
      * Setter category
      * mengassign nilai category baru pada objek Job
      */
-    public void setCategory(String category) {
+    public void setCategory(JobCategory category) {
         this.category = category;
     }
     
@@ -116,6 +116,12 @@ public class Job
     }
     
     public void printData(){
-        System.out.println(getName());
+        System.out.println("\n======Job======\n"+
+            "ID          = "+id +"\n"+
+            "Nama        = "+name +"\n"+
+            "Recruiter   = "+recruiter.getName()+"\n"+
+            "City        = "+recruiter.getLocation().getCity()+"\n"+
+            "Fee         = "+fee+"\n"+
+            "Category    = "+ category );
     }
 }

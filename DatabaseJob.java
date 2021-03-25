@@ -8,22 +8,13 @@
 public class DatabaseJob
 {
     
-    private String[] listJob;
-
-    /**
-     * Constructor for objects of class DatabaseJob
-     * 
-     */
-    public DatabaseJob()
-    {
-        
-    }
+    private static String[] listJob;
 
     /**
      * fungsi yang berguna untuk menambahkan pekerjaan baru kedalam array listJob
      * @return true
      */
-    public boolean addJob(Job job){
+    public static boolean addJob(Job job){
         return true;
     }
     
@@ -31,23 +22,23 @@ public class DatabaseJob
      * fungsi yang berguna untuk menghapus pekerjaan dari array listJob
      * @return false
      */
-    public boolean removeJob(Job job){
-        return false;
+    public static boolean removeJob(Job job){
+        return true;
     }
     /**
      * Getter variable job
      * @return job
      */
-    public String getJob(int index){
-        return listJob[index];
+    public static Job getJob(){
+        return null;
     }
     
     /**
      * Getter array listJob
      * @return listJob[] mengembalikan array listjob
      */
-    public String[] getListJob(){
-        return listJob;
+    public static String[] getListJob(){
+        return null;
     }
     
 }
