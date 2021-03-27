@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Location
-comment0.text=\r\n\ \r\n\r\n\ @author\ (Dio\ Fajrie\ Fadlullah)\r\n\ @version\ (18.03.2021)\r\n
+comment0.text=\r\n\ \r\n\r\n\ @author\ (Dio\ Fajrie\ Fadlullah)\r\n\ @version\ (25.03.2021)\r\n
 comment1.params=province\ city\ description
 comment1.target=Location(java.lang.String,\ java.lang.String,\ java.lang.String)
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Location\r\n\ @param\ province\ provinsi\ dari\ lokasi\r\n\ @param\ city\ kota\ dari\ lokasi\r\n\ @param\ description\ deskripsi\ atau\ alamat\ detail\ dari\ lokasi\r\n

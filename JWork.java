@@ -1,9 +1,9 @@
 
 /**
- * Write a description of class JWork here.
+ * 
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Dio Fajrie Fadlullah)
+ * @version (25.03.2021)
  */
 public class JWork
 {
@@ -37,10 +37,17 @@ public class JWork
         rec1.setName("Hizkia William Eben");
         System.out.println(rec1.getName());*/
         
+        //CS 3
         Location loc1 = new Location("Jawa Barat", "Depok", "UI");
         Recruiter albert = new Recruiter(1, "Albert", "albert@gmail.com", "09018084", loc1);
         Job job1 = new Job(3, "Programer", albert, 2000000, JobCategory.WebDeveloper);
         job1.printData();
+        
+        //PT 3
+        Job job2 = new Job(4, "Designer", albert, 3000000, JobCategory.UI);
+        Jobseeker andi = new Jobseeker(20, "Andi", "Andi@gmail.com", "andi123", "17 Januari 2020");
+        Invoice invc1 = new Invoice(100, job2.getId(), "2/03/2020", job2.getFee(), andi, PaymentType.BankPayment, InvoiceStatus.Ongoing);
+        invc1.printData();
     }
     
 }

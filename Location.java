@@ -3,7 +3,7 @@
  * 
  *
  * @author (Dio Fajrie Fadlullah)
- * @version (18.03.2021)
+ * @version (25.03.2021)
  */
 public class Location
 {

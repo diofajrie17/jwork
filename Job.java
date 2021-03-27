@@ -3,7 +3,7 @@
  * 
  *
  * @author (Dio Fajrie Fadlullah)
- * @version (18.03.2021)
+ * @version (25.03.2021)
  */
 public class Job
 {
@@ -35,7 +35,7 @@ public class Job
      * Getter variable id
      * @return id dari job terkait
      */
-    public int setId()
+    public int getId()
     {
         return id;
     }

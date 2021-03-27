@@ -1,9 +1,9 @@
 
 /**
- * Write a description of class DatabaseRecruiter here.
+ * 
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Dio Fajrie Fadlullah)
+ * @version (25.03.2021)
  */
 public class DatabaseRecruiter
 {
