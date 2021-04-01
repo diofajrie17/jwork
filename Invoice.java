@@ -5,15 +5,15 @@
  * @author (Dio Fajrie Fadlullah)
  * @version (25.03.2021)
  */
-public class Invoice
+abstract class Invoice
 {
     private int id;
-    private int idJob;
+    private Job job;
     private String date;
-    private int totalFee;
+    protected int totalFee;
     private Jobseeker jobseeker;
-    private PaymentType paymentType;
-    private InvoiceStatus status;
+    //private PaymentType paymentType;
+    private InvoiceStatus invoiceStatus;
     /**
      * Constructor for objects of class Invoice
      * @param id merupakan id dari Invoice terkait
@@ -23,15 +23,14 @@ public class Invoice
      * @param jobSeeker variable yang menampung pointer objek jobSeeker
      * 
      */
-    public Invoice(int id, int idJob, String date, int totalFee, Jobseeker jobseeker, PaymentType paymentType, InvoiceStatus status)
+    public Invoice(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus invoiceStatus)
     {
         this.id = id;
-        this.idJob = idJob;
+        this.job = job;
         this.date = date;
-        this.totalFee = totalFee;
         this.jobseeker = jobseeker;
-        this.paymentType = paymentType;
-        this.status = status;
+        //this.paymentType = paymentType;
+        this.invoiceStatus = invoiceStatus;
     }
 
     /**
@@ -47,9 +46,9 @@ public class Invoice
      * Getter variable idJob
      * @return id job yg terdapat pada invoice
      */
-    public int getIdJob()
+    public Job getJob()
     {
-        return idJob;
+        return job;
     }
     
     /**
@@ -77,12 +76,10 @@ public class Invoice
         return jobseeker;
     }
     
-    public PaymentType getPaymentType(){
-        return paymentType;
-    }
+    public abstract PaymentType getPaymentType();
     
     public InvoiceStatus getInvoiceStatus(){
-        return status;
+        return invoiceStatus;
     }
     
     /**
@@ -97,8 +94,8 @@ public class Invoice
      * setter idJob
      * mengassign nilai idJob baru pada objek invoice
      */
-    public void setIdJob(int idJob) {
-        this.idJob = idJob;
+    public void setjob(Job job) {
+        this.job = job;
     }
     
     /**
@@ -113,9 +110,7 @@ public class Invoice
      * setter totalFee
      * mengassign nilai totalFee baru pada objek invoice
      */
-    public void setTotalFee(int totalFee) {
-        this.totalFee = totalFee;
-    }
+    public abstract void setTotalFee();
     
     /**
      * setter jobseeker
@@ -125,21 +120,22 @@ public class Invoice
         this.jobseeker = jobseeker;
     }
     
-    public void setPaymentType(PaymentType paymentType){
+    /*public void setPaymentType(PaymentType paymentType){
         this.paymentType = paymentType;
+    }*/
+    
+    public void setInvoiceStatus(InvoiceStatus invoiceStatus){
+        this.invoiceStatus = invoiceStatus;
     }
     
-    public void setInvoiceStatus(InvoiceStatus status){
-        this.status = status;
-    }
-    
-    public void printData(){
+    public abstract void printData();
+    /*{
         System.out.println("\n======Invoice======\n"+
             "ID          = "+id +"\n"+
-            "ID Job      = "+idJob +"\n"+
+            "ID Job      = "+job +"\n"+
             "Date        = "+date+"\n"+
             "Seeker      = "+jobseeker.getName()+"\n"+
             "Fee         = "+totalFee+"\n"+
-            "Status      = "+status );
-    }
+            "Status      = "+invoiceStatus );
+    }*/
 }
