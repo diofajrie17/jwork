@@ -60,9 +60,17 @@ public class JWork
         EwalletPayment e2 = new EwalletPayment(32, job2, "01/02/2021", andi, bonus1, InvoiceStatus.Ongoing);
         EwalletPayment e3 = new EwalletPayment(33, job2, "01/02/2021", andi, bonus2, InvoiceStatus.Ongoing);
         
-        e1.printData();
+        /*e1.printData();
         e2.printData();
-        e3.printData();
+        e3.printData();*/
+        
+        
+        //PT 4
+        BankPayment b1 = new BankPayment(31, job2, "01/02/2021", andi, InvoiceStatus.Finished);
+        BankPayment b2 = new BankPayment(31, job2, "01/02/2021", andi, InvoiceStatus.Finished,200);
+        
+        b1.printData();
+        b2.printData();
     }
     
 }
