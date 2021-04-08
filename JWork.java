@@ -1,3 +1,4 @@
+import java.util.GregorianCalendar;
 
 /**
  * 
@@ -50,27 +51,36 @@ public class JWork
         invc1.printData();*/
         
         //CS 4
-        Location loc1 = new Location("Jawa Barat", "Depok", "UI");
+        /*Location loc1 = new Location("Jawa Barat", "Depok", "UI");
         Recruiter albert = new Recruiter(1, "Albert", "albert@gmail.com", "09018084", loc1);
-        Jobseeker andi = new Jobseeker(20, "Andi", "Andi@gmail.com", "andi123", "17 Januari 2020");
+        Jobseeker andi = new Jobseeker(20, "Andi", "Andi@gmail.com", "andi123", 17-02-2020);
         Bonus bonus1 = new Bonus(25, "Mantap", 10000, 30000, true);
         Bonus bonus2 = new Bonus(26, "Mantap", 20000, 13000, true);
         Job job2 = new Job(4, "Designer", albert, 22000, JobCategory.UI);
         EwalletPayment e1 = new EwalletPayment(31, job2, "01/02/2021", andi, InvoiceStatus.Ongoing);
         EwalletPayment e2 = new EwalletPayment(32, job2, "01/02/2021", andi, bonus1, InvoiceStatus.Ongoing);
         EwalletPayment e3 = new EwalletPayment(33, job2, "01/02/2021", andi, bonus2, InvoiceStatus.Ongoing);
-        
+        */
         /*e1.printData();
         e2.printData();
         e3.printData();*/
         
         
         //PT 4
-        BankPayment b1 = new BankPayment(31, job2, "01/02/2021", andi, InvoiceStatus.Finished);
+        /*BankPayment b1 = new BankPayment(31, job2, "01/02/2021", andi, InvoiceStatus.Finished);
         BankPayment b2 = new BankPayment(31, job2, "01/02/2021", andi, InvoiceStatus.Finished,200);
         
         b1.printData();
         b2.printData();
+        */
+        
+        //CS 5
+        Jobseeker jobseeker1 = new Jobseeker(1, "Dio", "dio@ui.ac.id", "dio123", new GregorianCalendar(2010, 6, 12));
+        Jobseeker jobseeker2 = new Jobseeker(2, "Ricky", "ricky@ui.ac.id", "ricky123", 2010, 1, 7);
+        Jobseeker jobseeker3 = new Jobseeker(3, "Diaz ", "diaz@ui.ac.id", "diaz123");
+        System.out.println(jobseeker1.toString());
+        System.out.println(jobseeker2.toString());
+        System.out.println(jobseeker3.toString());       
     }
     
 }

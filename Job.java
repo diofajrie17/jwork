@@ -115,7 +115,11 @@ public class Job
         this.recruiter = recruiter;
     }
     
-    public void printData(){
+    public String toString(){
+        return String.format("ID = %d \nName = %s \nRecruiter = %s \nCity = %s \nFee = %d \nCategory = %s", id, name, recruiter.getName(), recruiter.getLocation().getCity(), fee, category);
+    }
+}
+    /*public void printData(){
         System.out.println("\n======Job======\n"+
             "ID          = "+id +"\n"+
             "Nama        = "+name +"\n"+
@@ -124,4 +128,5 @@ public class Job
             "Fee         = "+fee+"\n"+
             "Category    = "+ category );
     }
-}
+    */
+

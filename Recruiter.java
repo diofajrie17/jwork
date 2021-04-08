@@ -116,9 +116,12 @@ public class Recruiter
     }
     
     /**
-     * fungsi untuk melakukan print data ke layar
+     * return string untuk melakukan print data ke layar
      */
-    public void printData(){
+    /*public void printData(){
         System.out.println(getName() + "," + getEmail() + "," + getPhoneNumber());
+    }*/
+    public String toString(){
+        return String.format("ID = %d \nName = %s \nPhone Number = %s \nLocation = %s", id, name, phoneNumber, location);
     }
 }

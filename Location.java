@@ -74,9 +74,9 @@ public class Location
     
     
     /**
-     * fungsi untuk melakukan print data ke layar
+     * return string untuk melakukan print data ke layar
      */
-    public void printData(){
-        System.out.println(getProvince() + "," + getCity() + "," + getDescription());
+    public String toString(){
+        return String.format("Province = %s \nCity = %s \nDescription = %s", province, city, description);
     }
 }
