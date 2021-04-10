@@ -1,3 +1,5 @@
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 /**
  * 
@@ -9,7 +11,7 @@ abstract class Invoice
 {
     private int id;
     private Job job;
-    private String date;
+    private Calendar date;
     protected int totalFee;
     private Jobseeker jobseeker;
     //private PaymentType paymentType;
@@ -23,11 +25,10 @@ abstract class Invoice
      * @param jobSeeker variable yang menampung pointer objek jobSeeker
      * 
      */
-    public Invoice(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus invoiceStatus)
+    public Invoice(int id, Job job,Jobseeker jobseeker, InvoiceStatus invoiceStatus)
     {
         this.id = id;
         this.job = job;
-        this.date = date;
         this.jobseeker = jobseeker;
         //this.paymentType = paymentType;
         this.invoiceStatus = invoiceStatus;
@@ -55,7 +56,7 @@ abstract class Invoice
      * Getter date
      * @return tanggal dikeluarkannya invoice
      */
-    public String getDate()
+    public Calendar getDate()
     {
         return date;
     }
@@ -102,8 +103,16 @@ abstract class Invoice
      * setter date
      * mengassign nilai date baru pada objek invoice
      */
-    public void setDate(String date) {
+    public void setDate(Calendar date) {
         this.date = date;
+    }
+    
+    /**
+     * setter date
+     * mengassign nilai date baru pada objek invoice
+     */
+    public void setDate(int year,int month, int dayOfMonth) {
+        this.date = new GregorianCalendar(year, month, dayOfMonth);
     }
     
     /**
@@ -128,7 +137,7 @@ abstract class Invoice
         this.invoiceStatus = invoiceStatus;
     }
     
-    public abstract void printData();
+    //public abstract void printData();
     /*{
         System.out.println("\n======Invoice======\n"+
             "ID          = "+id +"\n"+
@@ -138,4 +147,7 @@ abstract class Invoice
             "Fee         = "+totalFee+"\n"+
             "Status      = "+invoiceStatus );
     }*/
+    public String toString(){
+        return String.format("ID = %d \nJob = %s \nDate = %s \nTotal Fee = %s \nJob Seeker = %s \nInvoice Status = %s", id, job.getName(), totalFee, invoiceStatus);
+    }
 }
