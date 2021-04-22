@@ -4,7 +4,7 @@ import java.util.GregorianCalendar;
  * Write a description of class EwalletPayment here.
  *
  * @author (Dio Fajrie Fadlullah)
- * @version (25.03.2021)
+ * @version (22.04.2021)
  */
 public class JWork
 {
@@ -67,23 +67,45 @@ public class JWork
         b1.printData();
         b2.printData();
         */
-        Location loc1 = new Location("Jawa Barat", "Depok", "UI");
-        Recruiter albert = new Recruiter(1, "Albert", "albert@gmail.com", "09018084", loc1);
+        /*Location loc1 = new Location("Jawa Barat", "Depok", "UI");
+        Recruiter albert = new Recruiter(1, "Albert", "albert@gmail.com", "09018084", loc1);*/
         //CS 5
-        Jobseeker jobseeker1 = new Jobseeker(1, "Dio", "dio@ui.ac.id", "dio123", new GregorianCalendar(2010, 6, 12));
+        /*Jobseeker jobseeker1 = new Jobseeker(1, "Dio", "dio@ui.ac.id", "dio123", new GregorianCalendar(2010, 6, 12));
         Jobseeker jobseeker2 = new Jobseeker(2, "Ricky", "ricky@ui.ac.id", "ricky123", 2010, 1, 7);
         Jobseeker jobseeker3 = new Jobseeker(3, "Diaz ", "diaz@ui.ac.id", "diaz123");
         System.out.println(jobseeker1.toString());
         System.out.println(jobseeker2.toString());
-        System.out.println(jobseeker3.toString()); 
+        System.out.println(jobseeker3.toString()); */
         
         
-        Job job2 = new Job(4, "Designer", albert, 3000000, JobCategory.UI);
+        /*Job job2 = new Job(4, "Designer", albert, 3000000, JobCategory.UI);*/
         //PT 5
-        BankPayment b2 = new BankPayment(31, job2, jobseeker1, InvoiceStatus.Finished,200);
+        /*BankPayment b2 = new BankPayment(31, job2, jobseeker1, InvoiceStatus.Finished,200);
         EwalletPayment e1 = new EwalletPayment(31, job2, jobseeker1, InvoiceStatus.Ongoing);
         System.out.println(e1.toString());
-        System.out.println(b2.toString());
+        System.out.println(b2.toString());*/
+
+        //CS Modul 6
+        Location loc1 = new Location("Jawa Barat", "Depok", "UI");
+
+        DatabaseRecruiter.addRecruiter(new Recruiter(1, "Albert", "albert@gmail.com", "09018084", loc1));
+        DatabaseJobseeker.addJobseeker(new Jobseeker(1, "Dio", "dio@ui.ac.id", "dio123"));
+        DatabaseJobseeker.addJobseeker(new Jobseeker(2, "Dio", "dio@ui.ac.id", "dio123"));
+        DatabaseJobseeker.addJobseeker(new Jobseeker(3, "Eben", "eben@ui.ac.id", "eben123"));
+        for (Jobseeker jobseeker : DatabaseJobseeker.getJobseekerDatabase()){
+            System.out.println(jobseeker.toString());
+        }
+
+        DatabaseJob.addJob(new Job(1,"Senior Programmer", DatabaseRecruiter.getRecruiterById(1),1000000,JobCategory.BackEnd));
+        DatabaseJob.addJob(new Job(1,"Junior Programmer", DatabaseRecruiter.getRecruiterById(1),1000000,JobCategory.BackEnd));
+        DatabaseJob.addJob(new Job(1,"FullStack Developer", DatabaseRecruiter.getRecruiterById(1),1000000,JobCategory.WebDeveloper));
+        for (Job job : DatabaseJob.getJobByCategory(JobCategory.BackEnd)){
+            System.out.println(job.toString());
+        }
+        for (Job job : DatabaseJob.getJobByCategory(JobCategory.WebDeveloper)){
+            System.out.println(job.toString());
+        }
+
     }
     
 }

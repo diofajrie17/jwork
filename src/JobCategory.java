@@ -1,14 +1,14 @@
 
 /**
- * 
+ * Write a description of class EwalletPayment here.
  *
  * @author (Dio Fajrie Fadlullah)
- * @version (25.03.2021)
+ * @version (22.04.2021)
  */
 public enum JobCategory
 {
    WebDeveloper("Web Developer"), 
-   FrontEnd ("FrontEnd"), 
+   FrontEnd("FrontEnd"),
    BackEnd("BackEnd"), 
    UI("UI"), 
    UX("UX"), 

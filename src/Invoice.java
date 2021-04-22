@@ -1,15 +1,14 @@
 import java.util.*;
-
 /**
- * 
+ * Write a description of class EwalletPayment here.
  *
  * @author (Dio Fajrie Fadlullah)
- * @version (25.03.2021)
+ * @version (22.04.2021)
  */
 abstract class Invoice
 {
     private int id;
-    private Job job;
+    ArrayList<Job> jobs = new ArrayList<>();
     private Calendar date;
     protected int totalFee;
     private Jobseeker jobseeker;
@@ -17,14 +16,14 @@ abstract class Invoice
     /**
      * Constructor for objects of class Invoice
      * @param id merupakan id dari Invoice terkait
-     * @param job id dari job terkait
+     * @param jobs id dari job terkait
      * @param jobseeker variable yang menampung pointer objek jobSeeker
      * 
      */
-    public Invoice(int id, Job job,Jobseeker jobseeker, InvoiceStatus invoiceStatus)
+    public Invoice(int id, ArrayList<Job> jobs,Jobseeker jobseeker, InvoiceStatus invoiceStatus)
     {
         this.id = id;
-        this.job = job;
+        this.jobs = jobs;
         this.jobseeker = jobseeker;
         this.invoiceStatus = invoiceStatus;
     }
@@ -42,9 +41,9 @@ abstract class Invoice
      * Getter variable idJob
      * @return id job yg terdapat pada invoice
      */
-    public Job getJob()
+    public ArrayList<Job> getJobs()
     {
-        return job;
+        return jobs;
     }
     
     /**
@@ -90,8 +89,8 @@ abstract class Invoice
      * setter job
      * mengassign job baru pada objek invoice
      */
-    public void setjob(Job job) {
-        this.job = job;
+    public void setJobs(ArrayList<Job> jobs) {
+        this.jobs = jobs;
     }
     
     /**

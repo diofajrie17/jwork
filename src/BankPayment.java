@@ -1,4 +1,5 @@
 import java.text.*;
+import java.util.ArrayList;
 
 /**
  * Write a description of class EwalletPayment here.
@@ -11,13 +12,13 @@ public class BankPayment extends Invoice
     private int adminFee;
     private static final PaymentType PAYMENT_TYPE = PaymentType.BankPayment;
 
-    public BankPayment(int id, Job job, Jobseeker jobseeker, InvoiceStatus invoiceStatus)
+    public BankPayment(int id, ArrayList<Job> jobs, Jobseeker jobseeker, InvoiceStatus invoiceStatus)
     {
-        super(id, job, jobseeker, invoiceStatus);
+        super(id, jobs, jobseeker, invoiceStatus);
     }
     
-    public BankPayment(int id, Job job, Jobseeker jobseeker, InvoiceStatus invoiceStatus, int adminFee)   {
-        super(id, job, jobseeker, invoiceStatus);
+    public BankPayment(int id, ArrayList<Job> jobs, Jobseeker jobseeker, InvoiceStatus invoiceStatus, int adminFee)   {
+        super(id, jobs, jobseeker, invoiceStatus);
         this.adminFee = adminFee;
     }
 
@@ -57,17 +58,20 @@ public class BankPayment extends Invoice
             "\nStatus: " + getInvoiceStatus() +
             "\nPayment Type: " + PAYMENT_TYPE );
     }*/
-    public String toString() {
-    if (getDate() == null) {
-            return  "===================== INVOICE =====================" + "\nId = " + getId() + "\nJob = " + getJob().getName() + "\nDate = " + getDate() + "\nJob Seeker = "
-                    + getJobseeker().getName() + "\nAdmin Fee = " + getAdminFee() + "\nTotal Fee" + getJob().getFee() +
-                    "\nStatus : " + getInvoiceStatus() + "\nPayment Type: " + PAYMENT_TYPE;
-        } else {
-            SimpleDateFormat formattedDate = new SimpleDateFormat("dd-MMMM-yyyy");
-            String date = formattedDate.format(getDate().getTime());
-            return "Id = " + getId() + "\nJob = " + getJob().getName() + "\nDate = " + getDate() + "\nJob Seeker = "
-                    + getJobseeker().getName() + "\nAdmin Fee = " + getAdminFee() + "\nTotal Fee" + getJob().getFee() +
-                    "\nStatus : " + getInvoiceStatus() + "\nPayment Type: " + PAYMENT_TYPE;
+    public String toString()
+    {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMMM-yyyy");
+        String date = dateFormat.format(getDate().getTime());
+        String res = "";
+        for (Job job : getJobs()) {
+            if (adminFee != 0) {
+                res.concat("\nId = " + getId() + "\nJob = " + job.getName() + "\nDate = " + date + "\nJob Seeker = "
+                        + getJobseeker().getName() + "\nAdmin Fee = " + adminFee + "\nTotal Fee = " + getTotalFee() + "\nStatus = " + getInvoiceStatus() + "\nPayment = " + PAYMENT_TYPE);
+            } else {
+                res.concat("\nId = " + getId() + "\nJob = " + job.getName() + "\nDate = " + date + "\nJob Seeker = "
+                        + getJobseeker().getName() + "\nTotal Fee = " + getTotalFee() + "\nStatus = " + getInvoiceStatus() + "\nPayment = " + PAYMENT_TYPE);
+            }
         }
+        return res;
     }
 }

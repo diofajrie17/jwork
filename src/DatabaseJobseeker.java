@@ -1,29 +1,55 @@
+import java.util.ArrayList;
 
 /**
- * Write a description of class DatabaseJobseeker here.
+ * Write a description of class EwalletPayment here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Dio Fajrie Fadlullah)
+ * @version (22.04.2021)
  */
 public class DatabaseJobseeker
 {
-    private static String[] listJobseeker;
-    
-    /**
-     * An example of a method - replace this comment with your own
-     */
+    private static ArrayList<Jobseeker> JOBSEEKER_DATABASE = new ArrayList<Jobseeker>();
+    private static int lastId = 0;
+
+    public static ArrayList<Jobseeker> getJobseekerDatabase(){
+        return JOBSEEKER_DATABASE;
+    }
+    public static int getLastId()
+    {
+        return lastId;
+    }
+
+    public static Jobseeker getJobseekerById(int id)
+    {
+        Jobseeker tempVar = null;
+        for (Jobseeker jobseeker: JOBSEEKER_DATABASE) {
+            if (id == jobseeker.getId()){
+                tempVar = jobseeker;
+            }
+            else{
+                tempVar =  null;
+            }
+        }
+        return tempVar;
+    }
+
     public static boolean addJobseeker(Jobseeker jobseeker)
     {
         return true;
     }
-    public static boolean removeJobseeker(Jobseeker jobseeker)
+
+    public static boolean removeJobseeker(int id)
     {
-        return true;
-    }
-    public static Jobseeker getJobseeker(){
-        return null;
-    }
-    public static String[] getListJobseeker(){
-        return null;
+        boolean tempBool = true;
+        for (Jobseeker jobseeker: JOBSEEKER_DATABASE) {
+            if (id == jobseeker.getId()){
+                JOBSEEKER_DATABASE.remove(id);
+                tempBool = true;
+            }
+            else{
+                tempBool = false;
+            }
+        }
+        return tempBool;
     }
 }

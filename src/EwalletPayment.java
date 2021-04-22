@@ -1,24 +1,24 @@
-import java.util.Calendar;
+import java.util.*;
 import java.text.*;
 
 /**
  * Write a description of class EwalletPayment here.
  *
  * @author (Dio Fajrie Fadlullah)
- * @version (25.03.2021)
+ * @version (22.04.2021)
  */
 public class EwalletPayment extends Invoice
 {
     private Bonus bonus;
     private static final PaymentType PAYMENT_TYPE = PaymentType.EwalletPayment;
 
-    public EwalletPayment(int id, Job job, Jobseeker jobseeker, InvoiceStatus invoiceStatus)
+    public EwalletPayment(int id, ArrayList<Job> jobs, Jobseeker jobseeker, InvoiceStatus invoiceStatus)
     {
-        super(id, job,jobseeker, invoiceStatus);
+        super(id, jobs,jobseeker, invoiceStatus);
     }
     
-    public EwalletPayment(int id, Job job, Jobseeker jobseeker, Bonus bonus ,InvoiceStatus invoiceStatus)   {
-        super(id, job, jobseeker, invoiceStatus);
+    public EwalletPayment(int id, ArrayList<Job> jobs, Jobseeker jobseeker, Bonus bonus ,InvoiceStatus invoiceStatus)   {
+        super(id, jobs, jobseeker, invoiceStatus);
         this.bonus = bonus;
     }
 
@@ -31,12 +31,16 @@ public class EwalletPayment extends Invoice
     {
         this.bonus = bonus;
     }
-    
-    public void setTotalFee(){
-        if(bonus != null && bonus.getActive() == true && totalFee > bonus.getMinTotalFee()){
-            totalFee = getJob().getFee() + bonus.getExtraFee();
-        } else {
-            totalFee = getJob().getFee();
+
+    public void setTotalFee() {
+        ArrayList<Job> jobs = getJobs();
+        for(Job job: jobs){
+            int fee = job.getFee();
+            if (bonus != null && (bonus.getActive() == true) && fee > bonus.getMinTotalFee()) {
+                super.totalFee = fee + bonus.getExtraFee();
+            } else {
+                super.totalFee = fee;
+            }
         }
     }
     
@@ -58,21 +62,21 @@ public class EwalletPayment extends Invoice
             "\nPayment Type: " + PAYMENT_TYPE);
     }*/
     public String toString() {
-    if (bonus != null && (bonus.getActive() == true) && getJob().getFee() > bonus.getMinTotalFee()) {
-                System.out.println("ReferralCode: " + bonus.getReferralCode());
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMMM-yyyy");
+        String date = dateFormat.format(getDate().getTime());
+        String res = "";
+        for (Job job : getJobs()) {
+            if ((bonus != null) && (bonus.getActive() == true) && (job.getFee() > bonus.getMinTotalFee())) {
+                res.concat("\nId = " + getId() + "\nJob = " + job.getName() + "\nDate = " + date + "\nJob Seeker = "
+                        + getJobseeker().getName() + "\nReferral Code = " + bonus.getReferralCode() + "\nTotal Fee = "
+                        + getTotalFee() + "\nStatus = " + getInvoiceStatus() + "\nPayment = " + PAYMENT_TYPE);
+            } else {
+                res.concat("\nId = " + getId() + "\nJob = " + job.getName() + "\nDate = " + date + "\nJob Seeker = "
+                        + getJobseeker().getName() + bonus.getReferralCode() + "\nTotal Fee = "
+                        + getTotalFee() + "\nStatus = " + getInvoiceStatus() + "\nPayment = " + PAYMENT_TYPE);
             }
-            setTotalFee();
-            System.out.println(
-                            "===================== INVOICE =====================" +
-                            "\nFee: " + getTotalFee() +
-                            "\nStatus: " + getInvoiceStatus() +
-                            "\nPayment Type: " + PAYMENT_TYPE);
-    if (getDate() == null) {
-            return "Id = " + getId() + "\nJob = " + getJob().getName() + "\nDate = " + getDate() + "\nJob Seeker = " + getJobseeker().getName();
-        } else {
-            SimpleDateFormat formattedDate = new SimpleDateFormat("dd-MMMM-yyyy");
-            String date = formattedDate.format(getDate().getTime());
-            return "Id = " + getId() + "\nJob = " + getJob().getName() + "\nDate = " + getDate() + "\nJob Seeker = " + getJobseeker().getName();
+
         }
-        }
+        return res;
+    }
 }
