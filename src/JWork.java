@@ -86,24 +86,30 @@ public class JWork
         System.out.println(b2.toString());*/
 
         //CS Modul 6
-        Location loc1 = new Location("Jawa Barat", "Depok", "UI");
+        /*Location loc1 = new Location("Jawa Barat", "Depok", "UI");
 
         DatabaseRecruiter.addRecruiter(new Recruiter(1, "Albert", "albert@gmail.com", "09018084", loc1));
         DatabaseJobseeker.addJobseeker(new Jobseeker(1, "Dio", "dio@ui.ac.id", "dio123"));
         DatabaseJobseeker.addJobseeker(new Jobseeker(2, "Dio", "dio@ui.ac.id", "dio123"));
         DatabaseJobseeker.addJobseeker(new Jobseeker(3, "Eben", "eben@ui.ac.id", "eben123"));
-        for (Jobseeker jobseeker : DatabaseJobseeker.getJobseekerDatabase()){
-            System.out.println(jobseeker.toString());
-        }
+        System.out.println(DatabaseJobseeker.getJobseekerDatabase());
+        System.out.println("\n=====================Jobseeker Database====================\n");
+        System.out.println(DatabaseJobseeker.getJobseekerDatabase());
 
         DatabaseJob.addJob(new Job(1,"Senior Programmer", DatabaseRecruiter.getRecruiterById(1),1000000,JobCategory.BackEnd));
-        DatabaseJob.addJob(new Job(1,"Junior Programmer", DatabaseRecruiter.getRecruiterById(1),1000000,JobCategory.BackEnd));
-        DatabaseJob.addJob(new Job(1,"FullStack Developer", DatabaseRecruiter.getRecruiterById(1),1000000,JobCategory.WebDeveloper));
-        for (Job job : DatabaseJob.getJobByCategory(JobCategory.BackEnd)){
-            System.out.println(job.toString());
-        }
-        for (Job job : DatabaseJob.getJobByCategory(JobCategory.WebDeveloper)){
-            System.out.println(job.toString());
+        DatabaseJob.addJob(new Job(2,"Junior Programmer", DatabaseRecruiter.getRecruiterById(1),1000000,JobCategory.BackEnd));
+        DatabaseJob.addJob(new Job(3,"FullStack Developer", DatabaseRecruiter.getRecruiterById(1),1000000,JobCategory.WebDeveloper));
+        System.out.println(DatabaseJob.getJobByCategory(JobCategory.BackEnd));
+        System.out.println(DatabaseJob.getJobByCategory(JobCategory.WebDeveloper));
+        System.out.println("\n=====================Job Database By Category====================\n");
+        System.out.println(DatabaseJob.getJobByCategory(JobCategory.BackEnd));
+        System.out.println(DatabaseJob.getJobByCategory(JobCategory.WebDeveloper));*/
+
+        DatabaseBonus.addBonus(new Bonus(1,"Mantap" ,500000 ,1000000 ,false ));
+        DatabaseBonus.addBonus(new Bonus(2,"Mantap" ,200000 ,500000 ,true ));
+        for (Bonus i : DatabaseBonus.getBonusDatabase()){
+            System.out.println("\n=====================Invoice====================\n");
+            System.out.println(i);
         }
 
     }
