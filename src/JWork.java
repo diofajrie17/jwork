@@ -105,12 +105,66 @@ public class JWork
         System.out.println(DatabaseJob.getJobByCategory(JobCategory.BackEnd));
         System.out.println(DatabaseJob.getJobByCategory(JobCategory.WebDeveloper));*/
 
-        DatabaseBonus.addBonus(new Bonus(1,"Mantap" ,500000 ,1000000 ,false ));
+        //CS Modul 7
+        /*DatabaseBonus.addBonus(new Bonus(1,"Mantap" ,500000 ,1000000 ,false ));
         DatabaseBonus.addBonus(new Bonus(2,"Mantap" ,200000 ,500000 ,true ));
         for (Bonus i : DatabaseBonus.getBonusDatabase()){
             System.out.println("\n=====================Invoice====================\n");
             System.out.println(i);
         }
+
+        DatabaseJob.addJob(new Job(1,"Senior Programmer", DatabaseRecruiter.getRecruiterById(1),1200000,JobCategory.BackEnd));
+        DatabaseJob.addJob(new Job(2,"Junior Programmer", DatabaseRecruiter.getRecruiterById(1),700000,JobCategory.BackEnd));
+        for (Job i : DatabaseJob.getJobDatabase()){
+            System.out.println("\n===================== Job ====================\n");
+            System.out.println(i);
+        }
+         */
+
+
+        //CS MODUL 8
+        System.out.println("=========Error===============");
+        try {
+            DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId() + 1, "Dio",
+                    "dio.fajrie@ui.ac.id", "Dio123", 2021, 05, 4));
+        } catch (EmailAlreadyExistsException e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId() + 1, "Dio",
+                    "dio.fajrie@ui.ac.id", "Dio123", 2021, 04, 21));
+        } catch (EmailAlreadyExistsException e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId() + 1, "Zidan",
+                    "zidan@ui.ac.id", "zidan123", 2021, 03, 6));
+        } catch (EmailAlreadyExistsException e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId() + 1, "Salman",
+                    "salman@ui.ac.id", "salman123", 2021, 03, 6));
+        } catch (EmailAlreadyExistsException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            DatabaseBonus.addBonus(new Bonus(101, "ggwp", 200000, 500000, false));
+        } catch (ReferralCodeAlreadyExistsException e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            DatabaseBonus.addBonus(new Bonus(101, "ggwp", 200000, 500000, true));
+        } catch (ReferralCodeAlreadyExistsException e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println("=========Database JobSeeker============");
+        System.out.println(DatabaseJobseeker.getDatabaseJobseeker());
+
+        System.out.println("=========Database Bonus===============");
+        System.out.println(DatabaseBonus.getBonusDatabase());
+
 
     }
     
