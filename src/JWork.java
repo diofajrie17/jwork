@@ -166,6 +166,14 @@ public class JWork
         System.out.println(DatabaseBonus.getBonusDatabase());
 
 
+        System.out.println("\n ========== Invoice ==========");
+        System.out.println(DatabaseInvoice.getInvoiceDatabase());
+
+        try {
+            DatabaseInvoice.getInvoiceById(69);
+        } catch (InvoiceNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
     }
     
 }
