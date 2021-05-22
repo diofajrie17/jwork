@@ -6,7 +6,7 @@ import java.util.*;
  * @author (Dio Fajrie Fadlullah)
  * @version (22.04.2021)
  */
-abstract class Invoice
+public abstract class Invoice
 {
     private int id;
     ArrayList<Job> jobs = new ArrayList<>();
