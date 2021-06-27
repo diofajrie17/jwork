@@ -1,13 +1,13 @@
 package diofajrie.jwork;
 public class OngoingInvoiceAlreadyExistsException extends Exception{
-    private int invoice_error;
+    private Invoice invoice_error;
 
-    public OngoingInvoiceAlreadyExistsException(int invoice_input) {
-        super("Recruiter Id: ");
-        invoice_error = invoice_input;
+    public OngoingInvoiceAlreadyExistsException(Invoice invoice_input) {
+        super("Ongoing Invoice: ");
+        this.invoice_error = invoice_input;
     }
 
     public String getMessage() {
-        return super.getMessage() + invoice_error + "Not FOund";
+        return super.getMessage() + invoice_error.getInvoiceStatus() + "Already Exists";
     }
 }

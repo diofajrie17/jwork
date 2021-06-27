@@ -4,7 +4,7 @@ public class BonusNotFoundException extends Exception{
     private int bonus_error;
 
     public BonusNotFoundException(int bonus_input) {
-        super("Bonus ID: ");
+        super("Referral Code ID: ");
         this.bonus_error = bonus_input;
     }
 

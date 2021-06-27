@@ -75,9 +75,10 @@ public class Bonus
     {
         this.active = active;
     }
-    
+
+    @Override
     public String toString(){
-        return String.format("ID = %d \nReferral Code = %s \nExtra Fee = %d \nMin Total Fee = %s \nActive Status = %s", id, referralCode, extraFee, minTotalFee, active);
+        return "\nId = " + getId() + "\nReferral Code = " + getReferralCode() + "\nExtra Fee = " + getExtraFee() + "\nMin Total Fee= " + getMinTotalFee() + "\nActive Status =  " + getActive();
     }
     
     /*public void printData(){

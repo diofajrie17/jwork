@@ -7,16 +7,14 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/bonus")
 @RestController
 public class BonusController {
-    @RequestMapping("")
+    @RequestMapping(value = "", method = RequestMethod.GET)
     public ArrayList<Bonus> getAllBonus() {
         return DatabaseBonus.getBonusDatabase();
     }
 
-    @RequestMapping("/bonus/{referralCode}")
+    @RequestMapping(value = "/{referralCode}")
     public Bonus getBonusByReferralCode(@PathVariable String referralCode){
-        Bonus bonus = null;
-        bonus = DatabaseBonus.getBonusByRefferalCode(referralCode);
-        return bonus;
+        return (DatabaseBonus.getBonusByReferralCode(referralCode));
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)

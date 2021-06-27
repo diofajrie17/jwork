@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.*;
 public class JobController {
     @RequestMapping("")
     public ArrayList<Job> getAllJob() {
-        return DatabaseJob.getJobDatabase();
+        ArrayList<Job> job = null;
+
+        job = DatabaseJob.getJobDatabase();
+        return job;
     }
 
     @RequestMapping("/{id}")

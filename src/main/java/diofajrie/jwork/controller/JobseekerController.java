@@ -3,6 +3,8 @@ package diofajrie.jwork.controller;
 import diofajrie.jwork.*;
 import org.springframework.web.bind.annotation.*;
 
+import static diofajrie.jwork.DatabaseJobseekerPostgre.getJobssekerLogin;
+
 @RequestMapping("/jobseeker")
 @RestController
 public class JobseekerController {
@@ -17,7 +19,7 @@ public class JobseekerController {
         Jobseeker jobseeker = null;
         try {
             jobseeker = DatabaseJobseeker.getJobseekerById(id);
-        } catch (JobSeekerNotFoundException e) {
+        } catch (Exception e) {
             e.getMessage();
             return null;
         }
@@ -25,23 +27,23 @@ public class JobseekerController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public Jobseeker registerJobseeker(@RequestParam(value="name") String name,
-                                  @RequestParam(value="email") String email,
-                                  @RequestParam(value="password") String password)
-    {
-        Jobseeker jobseeker = new Jobseeker(DatabaseJobseeker.getLastId()+1, name, email, password);
+    public Jobseeker registerJobseeker(@RequestParam(value = "name") String name,
+                                       @RequestParam(value = "email") String email,
+                                       @RequestParam(value = "password") String password){
+        Jobseeker jobseeker = new Jobseeker(DatabaseJobseekerPostgre.getLastId()+1,name, email,password);
         try {
-            DatabaseJobseeker.addJobseeker(jobseeker);
-        } catch (EmailAlreadyExistsException e) {
+            DatabaseJobseekerPostgre.addJobseeker(jobseeker);
+        }catch (Exception e){
             e.getMessage();
             return null;
         }
         return jobseeker;
     }
 
-    @RequestMapping(value ="/login", method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public Jobseeker loginJobseeker(@RequestParam(value = "email") String email,
                                     @RequestParam(value = "password") String password){
-        return (DatabaseJobseeker.getJobseekerLogin(email, password));
+        return (getJobssekerLogin(email, password));
     }
+
 }

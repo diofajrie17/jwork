@@ -35,14 +35,14 @@ public class DatabaseBonus {
         return temp;
     }
 
-    public static Bonus getBonusByRefferalCode(String refferalCode){
-        Bonus x = null;
+    public static Bonus getBonusByReferralCode(String referralCode){
+        Bonus temp = null;
         for (Bonus bonus : BONUS_DATABASE) {
-            if (refferalCode.equals(bonus.getReferralCode())) {
-                x = bonus;
+            if (referralCode.equals(bonus.getReferralCode())) {
+                temp = bonus;
             }
         }
-        return x;
+        return temp;
     }
 
     public static boolean addBonus(Bonus bonus) throws ReferralCodeAlreadyExistsException {
@@ -58,25 +58,25 @@ public class DatabaseBonus {
     }
 
     public static boolean activateBonus(int id){
-        boolean x = false;
+        boolean temp = false;
         for (Bonus bonus : BONUS_DATABASE) {
             if (id == bonus.getId()) {
                 bonus.setActive(true);
-                x = true;
+                temp = true;
             }
         }
-        return x;
+        return temp;
     }
 
     public static boolean deactivateBonus(int id){
-        boolean x = false;
+        boolean temp = false;
         for (Bonus bonus : BONUS_DATABASE) {
             if (id == bonus.getId()) {
                 bonus.setActive(false);
-                x = true;
+                temp = true;
             }
         }
-        return x;
+        return temp;
     }
 
     public static boolean removeBonus(int id) throws RecruiterNotFoundException{

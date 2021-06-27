@@ -9,7 +9,7 @@ import java.util.*;
 public abstract class Invoice
 {
     private int id;
-    ArrayList<Job> jobs = new ArrayList<>();
+    private ArrayList<Job> jobs;
     private Calendar date;
     protected int totalFee;
     private Jobseeker jobseeker;
@@ -21,13 +21,14 @@ public abstract class Invoice
      * @param jobseeker variable yang menampung pointer objek jobSeeker
      * 
      */
-    public Invoice(int id, ArrayList<Job> jobs,Jobseeker jobseeker, InvoiceStatus invoiceStatus)
+    public Invoice(int id, ArrayList<Job> jobs,Jobseeker jobseeker)
     {
         this.id = id;
         this.jobs = jobs;
         this.jobseeker = jobseeker;
-        this.invoiceStatus = invoiceStatus;
+        this.date = Calendar.getInstance();
     }
+
 
     /**
      * Getter variable id
@@ -90,7 +91,7 @@ public abstract class Invoice
      * setter job
      * mengassign job baru pada objek invoice
      */
-    public void setJobs(ArrayList<Job> jobs) {
+    public void setJob(ArrayList<Job> jobs) {
         this.jobs = jobs;
     }
     
@@ -99,26 +100,19 @@ public abstract class Invoice
      * mengassign nilai date baru pada objek invoice
      */
     public void setDate(Calendar date) {
-        this.date = date;
+        this.date = Calendar.getInstance();
     }
-    
-    /**
-     * setter date
-     * mengassign nilai date baru pada objek invoice
-     */
     public void setDate(int year,int month, int dayOfMonth) {
-        this.date = new GregorianCalendar(year, month, dayOfMonth);
+        this.date = new GregorianCalendar(year, month-1, dayOfMonth);
     }
-    
+
     /**
      * setter totalFee
      * mengassign nilai totalFee baru pada objek invoice
      */
-    public void setTotalFee(int totalFee){
-
-        this.totalFee = totalFee;
-    }
     public abstract void setTotalFee();
+
+
     /**
      * setter jobseeker
      * mengassign nilai pointer jobseeker baru pada objek invoice
@@ -126,11 +120,11 @@ public abstract class Invoice
     public void setJobSeeker(Jobseeker jobseeker){
         this.jobseeker = jobseeker;
     }
-    
-    /*public void setPaymentType(PaymentType paymentType){
-        this.paymentType = paymentType;
-    }*/
-    
+
+    /**
+     * setter InvoiceStatus
+     * digunakan untuk melakukan setting invoice status
+     */
     public void setInvoiceStatus(InvoiceStatus invoiceStatus){
         this.invoiceStatus = invoiceStatus;
     }
@@ -145,7 +139,5 @@ public abstract class Invoice
             "Fee         = "+totalFee+"\n"+
             "Status      = "+invoiceStatus );
     }*/
-    public String toString() {
-        return "";
-    }
+    public abstract String toString();
 }
